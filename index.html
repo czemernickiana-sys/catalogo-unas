@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo - Todo para tus uñas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Montserrat',sans-serif;background:#fff;color:#333}
+.header-container,.banner-secundario{width:100%;line-height:0}.header-logo img,.banner-secundario img{width:100%;height:auto;display:block}
+.reels-container{width:100%;padding:50px 10px;background:linear-gradient(180deg,#e91e63 0%,#9c27b0 100%)}
+.reels-grid{display:flex;gap:15px;max-width:1800px;margin:0 auto}.reel-item{flex:1 1 25%}.reels-grid blockquote{width:100%!important;margin:0!important;border-radius:8px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.3)}
+.catalogo{padding:60px 20px}.catalogo-container{max-width:1400px;margin:0 auto}.catalogo-header{text-align:center;margin-bottom:40px}
+.catalogo-header h2{font-family:'Playfair Display',serif;font-size:42px;color:#ad1457}
+.catalogo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.producto-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:.3s}
+.producto-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(233,30,99,.2)}
+.producto-galeria{position:relative;width:100%;aspect-ratio:1/1;background:#f5f5f5;overflow:hidden}
+.producto-media{width:100%;height:100%;object-fit:contain;display:none;background:#f5f5f5}.producto-media.active{display:block}
+.galeria-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.galeria-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.2);cursor:pointer}
+.galeria-dot.active{background:#e91e63;width:20px;border-radius:4px}
+.galeria-flecha{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:#e91e63;opacity:0;transition:.3s;z-index:2}
+.producto-galeria:hover .galeria-flecha{opacity:1}.galeria-flecha.izq{left:8px}.galeria-flecha.der{right:8px}
+.producto-info{padding:15px}.producto-nombre{font-weight:600;min-height:40px}.producto-precio{font-size:20px;font-weight:700;color:#e91e63;margin:8px 0}
+.producto-stock{font-size:13px;color:#666;margin-bottom:12px}.producto-stock.sin-stock{color:#e91e63;font-weight:600}
+.btn-agregar{width:100%;padding:12px;background:#e91e63;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-agregar:hover{background:#c2185b}.btn-agregar.agregado{background:#4caf50}.btn-agregar:disabled{background:#ccc}
+.carrito-btn{position:fixed;bottom:30px;left:30px;background:#9c27b0;color:#fff;border:none;padding:15px 25px;border-radius:50px;font-weight:600;cursor:pointer;z-index:999;display:flex;gap:8px}
+.carrito-count{background:#fff;color:#9c27b0;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.carrito-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:2000}
+.carrito-modal.active{display:flex}.carrito-contenido{background:#fff;border-radius:16px;width:90%;max-width:550px;max-height:85vh;overflow-y:auto;padding:30px}
+@media(max-width:1024px){.reels-grid{flex-wrap:wrap}.reel-item{flex:1 1 48%}.catalogo-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.catalogo-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.reel-item{flex:1 1 100%}.catalogo-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header-container"><div class="header-logo"><img src="https://drive.google.com/thumbnail?id=1KjnZFq73fVtcJCpujO0Bfbcw-hS3D54J&sz=w1920"></div></div>
+<div class="banner-secundario"><img src="https://drive.google.com/thumbnail?id=1uZ4L0fhQlnULPaMtyDYD5YbAIT7EamwU&sz=w1920"></div>
+<div class="reels-container"><div class="reels-grid">
+<div class="reel-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DW6to73kqvS/" data-instgrm-version="14"></blockquote></div>
+<div class="reel-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWEu7cJgFqH/" data-instgrm-version="14"></blockquote></div>
+<div class="reel-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWEuXSNADuI/" data-instgrm-version="14"></blockquote></div>
+<div class="reel-item"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DXPXfx1EvuQ/" data-instgrm-version="14"></blockquote></div>
+</div><script async src="https://www.instagram.com/embed.js"></script></div>
+<div class="catalogo"><div class="catalogo-container"><div class="catalogo-header"><h2>Nuestro Catálogo</h2><p>Seleccioná los productos que te gustan</p></div><div class="catalogo-grid" id="catalogoGrid"></div></div></div>
+<button class="carrito-btn" onclick="toggleCarrito()">🛒 Mi Pedido <span class="carrito-count" id="carritoCount">0</span></button>
+<div class="carrito-modal" id="carritoModal"><div class="carrito-contenido"><div style="display:flex;justify-content:space-between"><h3>Mi Pedido</h3><button onclick="toggleCarrito()" style="background:none;border:none;font-size:28px">×</button></div><div id="carritoItems"></div><div id="carritoTotal" style="text-align:right;font-weight:700;color:#ad1457;margin:20px 0"></div><button onclick="enviarWhatsApp()" style="width:100%;padding:16px;background:#25D366;color:#fff;border:none;border-radius:10px;font-weight:700">📱 Enviar por WhatsApp</button></div></div>
+<script>
+let carrito=JSON.parse(localStorage.getItem('carrito')||'[]');
+window.onload=()=>{cargarProductos();actualizarCarrito();};
+function cargarProductos(){const p=JSON.parse(localStorage.getItem('productos')||'[]');const g=document.getElementById('catalogoGrid');g.innerHTML='';p.forEach((prod,i)=>{const urls=prod.urls||[];let m='<div class="producto-galeria">';urls.forEach((u,ix)=>{m+=`<img class="producto-media ${ix===0?'active':''}" src="${u}">`;});if(urls.length>1){m+=`<button class="galeria-flecha izq" onclick="cambiarFoto(this,-1)">‹</button><button class="galeria-flecha der" onclick="cambiarFoto(this,1)">›</button>`;}m+='</div>';const stock=prod.stock||0;const sin=stock<=0;const en=carrito.find(x=>x.index===i);g.innerHTML+=`<div class="producto-card">${m}<div class="producto-info"><div class="producto-nombre">${prod.nombre}</div><div class="producto-precio">Bs. ${prod.precio}</div><div class="producto-stock ${sin?'sin-stock':''}">${sin?'Sin stock':`Stock: ${stock}`}</div><button class="btn-agregar ${en?'agregado':''}" onclick="agregarAlCarrito(${i})" ${sin?'disabled':''}>${sin?'Sin stock':(en?`✓ En carrito (${en.cantidad})`:'+ Agregar')}</button></div></div>`;});}
+function cambiarFoto(b,d){const g=b.closest('.producto-galeria');const m=[...g.querySelectorAll('.producto-media')];let a=m.findIndex(x=>x.classList.contains('active'));m[a].classList.remove('active');a=(a+d+m.length)%m.length;m[a].classList.add('active');}
+function agregarAlCarrito(i){const p=JSON.parse(localStorage.getItem('productos')||'[]');const prod=p[i];if(!prod.stock)return alert('Sin stock');const ex=carrito.find(x=>x.index===i);if(ex){ex.cantidad++;}else{carrito.push({...prod,index:i,cantidad:1});}prod.stock--;p[i]=prod;localStorage.setItem('productos',JSON.stringify(p));localStorage.setItem('carrito',JSON.stringify(carrito));actualizarCarrito();cargarProductos();}
+function actualizarCarrito(){document.getElementById('carritoCount').textContent=carrito.reduce((s,x)=>s+x.cantidad,0);const box=document.getElementById('carritoItems');let t=0;box.innerHTML=carrito.map(it=>{t+=it.precio*it.cantidad;return `<div style="display:flex;gap:10px;margin:10px 0"><img src="${it.urls[0]}" style="width:60px;height:60px;object-fit:cover;border-radius:6px"><div>${it.cantidad}x ${it.nombre} - Bs.${(it.precio*it.cantidad).toFixed(2)}</div></div>`}).join('');document.getElementById('carritoTotal').textContent=carrito.length?`Total: Bs. ${t.toFixed(2)}`:'';}
+function toggleCarrito(){document.getElementById('carritoModal').classList.toggle('active');}
+function enviarWhatsApp(){if(!carrito.length)return;let msg='Hola! Quiero:%0A';let tot=0;carrito.forEach((it,i)=>{const s=it.precio*it.cantidad;tot+=s;msg+=`${i+1}. ${it.cantidad}x ${it.nombre} - Bs.${s.toFixed(2)}%0A`;});msg+=`%0ATotal: Bs.${tot.toFixed(2)}`;window.open(`https://wa.me/59163882223?text=${msg}`,'_blank');}
+</script>
+</body>
+</html>

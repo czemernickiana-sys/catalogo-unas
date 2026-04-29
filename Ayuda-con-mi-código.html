@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Todo para tus uñas</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>body{font-family:Montserrat;padding:30px;background:#fce4ec;max-width:900px;margin:auto}h1{color:#ad1457}input,select,textarea{width:100%;padding:12px;margin:8px 0;border:2px solid #f8bbd0;border-radius:8px}button{padding:12px 20px;background:#e91e63;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;margin:5px 0}.producto{display:flex;gap:15px;background:#fff;padding:12px;border-radius:10px;margin:10px 0;align-items:center}.producto img{width:80px;height:80px;object-fit:contain;background:#f5f5f5;border-radius:6px}</style>
+</head>
+<body>
+<h1>Panel Admin</h1>
+<p>Gestiona tu catálogo. Los cambios se ven al instante en el catálogo público.</p>
+<select id="tipo"><option value="imagen">Imagen</option><option value="video">Video</option></select>
+<textarea id="urls" placeholder="Pega URLs de Drive, una por línea"></textarea>
+<input id="nombre" placeholder="Nombre del producto">
+<input id="precio" type="number" placeholder="Precio" step="0.01">
+<input id="stock" type="number" placeholder="Stock" value="10">
+<button onclick="agregar()">+ Agregar Producto</button>
+<button onclick="limpiar()" style="background:#666">Borrar Todo</button>
+<hr><h2>Productos actuales</h2><div id="lista"></div>
+<script>
+const CLAVE='nails2026'; // <-- CAMBIA TU CLAVE AQUÍ
+if(prompt('Clave de administrador:')!==CLAVE){document.body.innerHTML='<h2>Acceso denegado</h2>';throw '';}
+function drive(u){u=u.trim();const m=u.match(/\/d\/([a-zA-Z0-9_-]+)/);return m?`https://drive.google.com/thumbnail?id=${m[1]}&sz=w500`:u;}
+function get(){return JSON.parse(localStorage.getItem('productos')||'[]');}
+function save(p){localStorage.setItem('productos',JSON.stringify(p));cargar();}
+function agregar(){const urls=document.getElementById('urls').value.split('\n').map(drive).filter(Boolean);const p=get();p.push({tipo:document.getElementById('tipo').value,urls,nombre:nombre.value,precio:parseFloat(precio.value),stock:parseInt(stock.value)});save(p);urls.value='';nombre.value='';precio.value='';}
+function eliminar(i){if(confirm('¿Eliminar?')){const p=get();p.splice(i,1);save(p);}}
+function limpiar(){if(confirm('¿Borrar TODO?')){localStorage.removeItem('productos');cargar();}}
+function cargar(){const p=get();lista.innerHTML=p.map((it,i)=>`<div class="producto"><img src="${it.urls[0]}"><div style="flex:1"><b>${it.nombre}</b><br>Bs. ${it.precio} - Stock: ${it.stock}</div><button onclick="eliminar(${i})">Eliminar</button></div>`).join('')||'<p>No hay productos</p>';}
+cargar();
+</script>
+</body>
+</html>
